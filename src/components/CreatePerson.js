@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom'
 import AuthContext from '../context/AuthContext'
 
 function CreatePerson() {
-
-  const { userId } = useParams();
+  const { userId } = useParams()
   const { getLoggedIn } = useContext(AuthContext)
 
   const [userDetails, setuserDetails] = useState({
@@ -23,6 +22,7 @@ function CreatePerson() {
   }
   useEffect(() => {
     getLoggedIn()
+    // eslint-disable-next-line
   }, [])
 
   const handleSubmit = (e) => {
@@ -30,11 +30,7 @@ function CreatePerson() {
     axios
       .post('http://localhost:3006/posts/submitNew', userDetails, {
         withCredentials: true,
-      })
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((error) => {
+      }).catch((error) => {
         console.log(error)
       })
     setuserDetails({ name: '', phone: '', email: '', address: '' })

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import {useHistory} from 'react-router-dom'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 function Login() {
-
-  const history =useHistory();
+  const history = useHistory()
 
   const [userLogin, setuserLogin] = useState({
     email: '',
@@ -19,23 +18,17 @@ function Login() {
   }
 
   const login = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-       console.log(userLogin)
-       await axios
-         .post(`http://localhost:3006/users/login`, userLogin, {
-           withCredentials: true,
-         })
-         .then((res, req) => {
-           console.log(res.data._id)
-           console.log(typeof res.data._id)
-
-           history.push(`/persons/${res.data._id}`)
-
-         })
-    } catch (error) { 
-  }  
-}
+      await axios
+        .post(`http://localhost:3006/users/login`, userLogin, {
+          withCredentials: true,
+        })
+        .then((res, req) => {
+          history.push(`/persons/${res.data._id}`)
+        })
+    } catch (error) {}
+  }
 
   return (
     <div className='border border-secondary m-6'>
@@ -80,9 +73,9 @@ function Login() {
             </button>
           </Link>
           &emsp;&emsp;
-           <button type='submit' onClick={login} className='btn btn-success'>
-              Login
-            </button>
+          <button type='submit' onClick={login} className='btn btn-success'>
+            Login
+          </button>
         </div>
       </form>
     </div>

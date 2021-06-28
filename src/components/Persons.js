@@ -6,16 +6,15 @@ import AuthContext from '../context/AuthContext'
 
 function Persons() {
   const { userId } = useParams();
-  const { getLoggedIn, loginUserID, setloginUserID } = useContext(AuthContext)
-  
+  const { getLoggedIn,  setloginUserID } = useContext(AuthContext)
   setloginUserID(userId);
 
-  console.log(loginUserID)
   const [persons, setPersons] = useState([])
   
   useEffect(() => {
-    fetchItems();
-    getLoggedIn();
+    fetchItems()
+    getLoggedIn()
+    // eslint-disable-next-line
   }, []);
 
   const fetchItems = async () => {
