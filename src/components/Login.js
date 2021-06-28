@@ -80,12 +80,9 @@ function Login() {
             </button>
           </Link>
           &emsp;&emsp;
-
-
-            <button type='submit' onClick={login} className='btn btn-success'>
+           <button type='submit' onClick={login} className='btn btn-success'>
               Login
             </button>
-
         </div>
       </form>
     </div>

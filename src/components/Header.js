@@ -42,7 +42,7 @@ function Header() {
                 </Link>
               </div>
               <div className='m-3 col-2'>
-                <Link to='/createPerson'>
+                <Link to='/createPerson/:userId'>
                   <button className='btn btn-success'>
                     Create New Contact
                   </button>
@@ -62,7 +62,7 @@ function Header() {
       <Switch>
         <Route exact path='/' component={Login}></Route>
         <Route path='/persons/:userId' component={Persons}></Route>
-        <Route path='/createPerson' component={CreatePerson}></Route>
+        <Route path='/createPerson/:userId' component={CreatePerson}></Route>
         <Route path='/editDetails/:id' component={EditDetails}></Route>
         <Route path='/createAccount' component={CreateAccount}></Route>
       </Switch>

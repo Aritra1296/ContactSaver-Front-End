@@ -8,8 +8,7 @@ function Persons() {
   const { userId } = useParams();
    const { getLoggedIn } = useContext(AuthContext)
   const [persons, setPersons] = useState([])
-  console.log(persons);
-
+  
   useEffect(() => {
     fetchItems();
     getLoggedIn();

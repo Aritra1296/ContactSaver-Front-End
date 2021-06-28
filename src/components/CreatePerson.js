@@ -1,9 +1,13 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect, useContext} from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import AuthContext from '../context/AuthContext'
 
 function CreatePerson() {
-
+ const { userId } = useParams();
+   const { getLoggedIn } = useContext(AuthContext)
 const [userDetails, setuserDetails] = useState({
+  userId: userId,
   name: '',
   phone: '',
   email: '',
@@ -15,6 +19,10 @@ const handleInput=(e)=>{
   const value = e.target.value;
   setuserDetails({ ...userDetails, [name]: value })
 }
+useEffect(() => {
+    getLoggedIn();
+  
+}, [])
 
 const handleSubmit=(e)=>{
 e.preventDefault();

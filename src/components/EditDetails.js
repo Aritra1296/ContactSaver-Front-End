@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect ,useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import AuthContext from '../context/AuthContext'
 
 function EditDetails() {
+  const { loggedIn, getLoggedIn } = useContext(AuthContext);
   const { id } = useParams();
   const [edit, setEdit] = useState({
     name: '',
@@ -12,12 +14,17 @@ function EditDetails() {
   })
 
   useEffect(() => {
-    loadUser()
+     loadUser();
+     getLoggedIn();
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:3006/posts/${id}`)
-    setEdit(result.data)
+    try {
+      const result = await axios.get(`http://localhost:3006/posts/edit/${id}`)
+      setEdit(result.data)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const handleInput = (e) => {
