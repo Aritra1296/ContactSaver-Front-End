@@ -1,44 +1,45 @@
-import React,{useState,useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import AuthContext from '../context/AuthContext'
 
 function CreatePerson() {
- const { userId } = useParams();
-   const { getLoggedIn } = useContext(AuthContext)
-const [userDetails, setuserDetails] = useState({
-  userId: userId,
-  name: '',
-  phone: '',
-  email: '',
-  address: '',
-})
 
-const handleInput=(e)=>{
-  const name =e.target.name;
-  const value = e.target.value;
-  setuserDetails({ ...userDetails, [name]: value })
-}
-useEffect(() => {
-    getLoggedIn();
-  
-}, [])
+  const { userId } = useParams();
+  const { getLoggedIn } = useContext(AuthContext)
 
-const handleSubmit=(e)=>{
-e.preventDefault();
-axios
-  .post('http://localhost:3006/posts', userDetails,
-  {
-    withCredentials : true
-  }).then((response) => {
-    console.log(response)
+  const [userDetails, setuserDetails] = useState({
+    userId: userId,
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
   })
-  .catch((error) => {
-    console.log(error)
-  })
-setuserDetails({ name: '', phone: '', email: '', address: '' })
-alert('Contact details Added Successfully')
-}
+
+  const handleInput = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    setuserDetails({ ...userDetails, [name]: value })
+  }
+  useEffect(() => {
+    getLoggedIn()
+  }, [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios
+      .post('http://localhost:3006/posts/submitNew', userDetails, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    setuserDetails({ name: '', phone: '', email: '', address: '' })
+    alert('Contact details Added Successfully')
+  }
 
   return (
     <div className='border border-secondary m-6'>
@@ -114,4 +115,3 @@ alert('Contact details Added Successfully')
 }
 
 export default CreatePerson
-

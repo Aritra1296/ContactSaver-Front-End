@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import  { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import Persons from './Persons'
 import CreatePerson from './CreatePerson'
 import CreateAccount from './CreateAccount'
@@ -11,20 +11,19 @@ import axios from 'axios'
 
 function Header() {
 
-  const { loggedIn, getLoggedIn } = useContext(AuthContext);
-  const history=useHistory();
+  const { loggedIn, getLoggedIn, loginUserID } = useContext(AuthContext)
 
-  async function logOut(){
-      try {
-      await axios.get(`http://localhost:3006/users/logout`);
-      await getLoggedIn();
-      history.push("/");
+  const history = useHistory()
 
-      console.log(loggedIn);
-        
-      } catch (error) {
-        console.log(error);
-      }
+  async function logOut() {
+    try {
+      await axios.get(`http://localhost:3006/users/logout`)
+      await getLoggedIn()
+      alert('You Have Successfully Logged Off')
+      history.push('/')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -37,12 +36,12 @@ function Header() {
           {loggedIn === true && (
             <>
               <div className='m-3 col-2'>
-                <Link to='/persons'>
+                <Link to={`/persons/${loginUserID}`}>
                   <button className='btn btn-warning'>Show All Contacts</button>
                 </Link>
               </div>
               <div className='m-3 col-2'>
-                <Link to='/createPerson/:userId'>
+                <Link to={`/createPerson/${loginUserID}`}>
                   <button className='btn btn-success'>
                     Create New Contact
                   </button>
@@ -66,9 +65,7 @@ function Header() {
         <Route path='/editDetails/:id' component={EditDetails}></Route>
         <Route path='/createAccount' component={CreateAccount}></Route>
       </Switch>
-
     </Router>
-
   )
 }
 
