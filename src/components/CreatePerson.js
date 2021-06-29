@@ -28,9 +28,10 @@ function CreatePerson() {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('http://localhost:3006/posts/submitNew', userDetails, {
+      .post('http://www.aritrarivu.co.in/posts/submitNew', userDetails, {
         withCredentials: true,
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.log(error)
       })
     setuserDetails({ name: '', phone: '', email: '', address: '' })

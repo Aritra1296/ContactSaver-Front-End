@@ -21,7 +21,9 @@ function EditDetails() {
 
   const loadUser = async () => {
     try {
-      const result = await axios.get(`http://localhost:3006/posts/edit/${id}`)
+      const result = await axios.get(
+        `http://www.aritrarivu.co.in/posts/edit/${id}`
+      )
       setEdit(result.data)
     } catch (error) {
       console.log(error)
@@ -36,7 +38,7 @@ function EditDetails() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.patch(`http://localhost:3006/posts/${id}`, edit)
+    await axios.patch(`http://www.aritrarivu.co.in/posts/${id}`, edit)
     alert('Contact details Updated successfully')
   }
 

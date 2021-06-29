@@ -19,7 +19,7 @@ function CreateAccount() {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('http://localhost:3006/users', userDetails)
+      .post('http://www.aritrarivu.co.in/users', userDetails)
       .then((response) => {
         console.log(response)
       })

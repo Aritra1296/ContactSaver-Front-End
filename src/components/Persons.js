@@ -19,9 +19,11 @@ function Persons() {
 
   const fetchItems = async () => {
     try {
-      await axios.get(`http://localhost:3006/posts/${userId}`).then((res, req) => {
-        setPersons(res.data)
-      })
+      await axios
+        .get(`http://www.aritrarivu.co.in/posts/${userId}`)
+        .then((res, req) => {
+          setPersons(res.data)
+        })
     } catch (error) {
       console.log(error)
     }
@@ -31,9 +33,9 @@ function Persons() {
     try {
       console.log(id)
       await axios
-        .delete(`http://localhost:3006/posts/${id}`)
+        .delete(`http://www.aritrarivu.co.in/posts/${id}`)
         .then((res, req) => {
-alert('Contact details Deleted successfully')
+          alert('Contact details Deleted successfully')
         })
     } catch (error) {
       console.log(error)

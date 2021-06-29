@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault()
     try {
       await axios
-        .post(`http://localhost:3006/users/login`, userLogin, {
+        .post(`http://www.aritrarivu.co.in/users/login`, userLogin, {
           withCredentials: true,
         })
         .then((res, req) => {
