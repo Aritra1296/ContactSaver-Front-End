@@ -15,7 +15,7 @@ function Header() {
 
   async function logOut() {
     try {
-      await axios.get(`http://www.aritrarivu.co.in/users/logout`)
+      await axios.get(`https://contact-saver-aritra.herokuapp.com/users/logout`)
       await getLoggedIn()
       alert('You Have Successfully Logged Off')
       history.push('/')

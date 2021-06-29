@@ -20,7 +20,7 @@ function Persons() {
   const fetchItems = async () => {
     try {
       await axios
-        .get(`http://www.aritrarivu.co.in/posts/${userId}`)
+        .get(`https://contact-saver-aritra.herokuapp.com/posts/${userId}`)
         .then((res, req) => {
           setPersons(res.data)
         })
@@ -33,7 +33,7 @@ function Persons() {
     try {
       console.log(id)
       await axios
-        .delete(`http://www.aritrarivu.co.in/posts/${id}`)
+        .delete(`https://contact-saver-aritra.herokuapp.com/posts/${id}`)
         .then((res, req) => {
           alert('Contact details Deleted successfully')
         })
