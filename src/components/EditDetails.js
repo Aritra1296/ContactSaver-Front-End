@@ -105,7 +105,7 @@ function EditDetails() {
 
         <div className='form-group row align-items-center justify-content-center'>
           <button type='submit' className='btn btn-success'>
-            Edit Contact
+          <b>  Edit Contact </b>
           </button>
         </div>
       </form>
