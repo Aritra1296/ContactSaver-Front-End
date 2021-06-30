@@ -36,7 +36,7 @@ function Login() {
         </h1>
         <div className='form-group row align-items-center justify-content-center'>
           <label htmlFor='userId' className='col-form-label '>
-            <h3>User Id :&emsp;</h3>
+            <h3>Email ID :&emsp;</h3>
           </label>
           <div className=''>
             <input

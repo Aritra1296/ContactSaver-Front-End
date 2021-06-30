@@ -15,8 +15,8 @@ function Header() {
 
   async function logOut() {
     try {
-      await axios.get(`http://api.aritrarivu.co.in/users/logout`)
-      await getLoggedIn()
+      await axios.get(`http://api.aritrarivu.co.in/users/logout`);
+      await getLoggedIn();
       alert('You Have Successfully Logged Off')
       history.push('/')
     } catch (error) {
