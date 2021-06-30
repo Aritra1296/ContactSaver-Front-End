@@ -5,22 +5,22 @@ import axios from 'axios'
 import AuthContext from '../context/AuthContext'
 
 function Persons() {
-  const { userId } = useParams();
-  const { getLoggedIn,  setloginUserID } = useContext(AuthContext)
-  setloginUserID(userId);
+  const { userId } = useParams()
+  const { getLoggedIn, setloginUserID } = useContext(AuthContext)
+  setloginUserID(userId)
 
   const [persons, setPersons] = useState([])
-  
+
   useEffect(() => {
     fetchItems()
     getLoggedIn()
     // eslint-disable-next-line
-  }, []);
+  }, [])
 
   const fetchItems = async () => {
     try {
       await axios
-        .get(`https://contact-saver-aritra.herokuapp.com/posts/${userId}`)
+        .get(`http://api.aritrarivu.co.in/posts/${userId}`)
         .then((res, req) => {
           setPersons(res.data)
         })
@@ -33,7 +33,7 @@ function Persons() {
     try {
       console.log(id)
       await axios
-        .delete(`https://contact-saver-aritra.herokuapp.com/posts/${id}`)
+        .delete(`http://api.aritrarivu.co.in/posts/${id}`)
         .then((res, req) => {
           alert('Contact details Deleted successfully')
         })
@@ -43,7 +43,7 @@ function Persons() {
   }
 
   const deleteHandler = (person) => (e) => {
-    deleteItems(person._id);
+    deleteItems(person._id)
   }
 
   return (
@@ -51,10 +51,7 @@ function Persons() {
       {persons.map((person, index) => {
         return (
           <div key={person.name}>
-            <Person
-              person={person}
-              deleteHandler={deleteHandler}
-            />
+            <Person person={person} deleteHandler={deleteHandler} />
           </div>
         )
       })}

@@ -28,7 +28,7 @@ function CreatePerson() {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('https://contact-saver-aritra.herokuapp.com/posts/submitNew', userDetails)
+      .post('http://api.aritrarivu.co.in/posts/submitNew', userDetails)
       .catch((error) => {
         console.log(error)
       })

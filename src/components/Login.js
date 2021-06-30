@@ -21,7 +21,7 @@ function Login() {
     e.preventDefault()
     try {
       await axios
-        .post(`https://contact-saver-aritra.herokuapp.com/users/login`, userLogin)
+        .post(`http://api.aritrarivu.co.in/users/login`, userLogin)
         .then((res, req) => {
           history.push(`/persons/${res.data._id}`)
         })

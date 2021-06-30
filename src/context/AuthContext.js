@@ -10,7 +10,7 @@ function AuthContextProvider(props) {
   async function getLoggedIn() {
    try {
      const loggedInRes = await axios.get(
-       'https://contact-saver-aritra.herokuapp.com/users/loggedIn'
+       'http://api.aritrarivu.co.in/users/loggedIn'
      )
      setLoggedIn(loggedInRes.data)
    } catch (error) {setLoggedIn(false);}

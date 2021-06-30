@@ -22,7 +22,7 @@ function EditDetails() {
   const loadUser = async () => {
     try {
       const result = await axios.get(
-        `https://contact-saver-aritra.herokuapp.com/posts/edit/${id}`
+        `http://api.aritrarivu.co.in/posts/edit/${id}`
       )
       setEdit(result.data)
     } catch (error) {
@@ -38,7 +38,7 @@ function EditDetails() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.patch(`https://contact-saver-aritra.herokuapp.com/posts/${id}`, edit)
+    await axios.patch(`http://api.aritrarivu.co.in/posts/${id}`, edit)
     alert('Contact details Updated successfully')
   }
 

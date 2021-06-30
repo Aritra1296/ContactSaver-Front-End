@@ -19,7 +19,7 @@ function CreateAccount() {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('https://contact-saver-aritra.herokuapp.com/users', userDetails)
+      .post('http://api.aritrarivu.co.in/users', userDetails)
       .then((response) => {
         console.log(response)
       })
